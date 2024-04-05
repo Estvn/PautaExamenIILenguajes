@@ -1,0 +1,32 @@
+package hn.unah.lenguajes1900.data.pautaexamen2lenguajes.entities;
+
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "tipovehiculo")
+@Data
+public class TipoVehiculo {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idtipovehiculo")
+    private long idTipoVehiculo;
+
+    private String descripcion;
+
+    @Column(name = "precioxhora")
+    private double precioXHora;
+
+    @OneToMany(mappedBy = "tipovehiculo")
+    private List<Vehiculo> Vehiculos;
+
+}
