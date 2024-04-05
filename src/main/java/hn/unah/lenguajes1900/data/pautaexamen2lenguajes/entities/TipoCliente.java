@@ -2,6 +2,8 @@ package hn.unah.lenguajes1900.data.pautaexamen2lenguajes.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class TipoCliente {
 
     private String descripcion;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tipocliente")
     private List<Cliente> clientes;
 
